@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rachel Maye Nuevo | BSIT ePortfolio</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <style>
+    /* ==============================================
+       COLOUR SETTINGS — change hex values here
+       ============================================== */
+    :root {
+      --blue:        #2563EB;
+      --blue-dark:   #1E40AF;
+      --blue-darker: #1E3A8A;
+      --blue-navy:   #0F172A;
+      --blue-light:  #EFF6FF;
+      --blue-pale:   #DBEAFE;
+      --blue-mid:    #BFDBFE;
+      --blue-soft:   #93C5FD;
+    }
+
+    /* ==============================================
+       BASE
+       ============================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+
+    /* ==============================================
+       NAVBAR
+       ============================================== */
+    .navbar { background: var(--blue) !important; padding: 0 0; height: 58px; }
+    .navbar-brand { font-size: 15px; font-weight: 600; color: white !important; }
+    .nav-link {
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: rgba(255,255,255,0.8) !important;
+      border-radius: 6px;
+      padding: 6px 14px !important;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.15); color: white !important; }
+    .navbar-toggler { border: none; }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ==============================================
+       HOME SECTION
+       ============================================== */
+    .home-section {
+      background: var(--blue-darker);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 5rem;
+    }
+    /* Dot grid background */
+    .home-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    /* Floating decorative circles */
+    .circle-1 {
+      position: absolute;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: rgba(37,99,235,0.25);
+      top: -120px; right: -80px;
+      animation: float 7s ease-in-out infinite;
+    }
+    .circle-2 {
+      position: absolute;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(96,165,250,0.15);
+      bottom: 60px; right: 220px;
+      animation: float 9s ease-in-out infinite reverse;
+    }
+    .circle-3 {
+      position: absolute;
+      width: 140px; height: 140px; border-radius: 50%;
+      background: rgba(147,197,253,0.12);
+      top: 180px; left: 40px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .circle-4 {
+      position: absolute;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      bottom: 180px; left: 180px;
+      animation: float 5s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-18px); }
+    }
+    .home-eyebrow {
+      font-size: 12px; font-weight: 600;
+      color: var(--blue-soft); letter-spacing: 0.08em;
+    }
+    .home-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 62px; font-weight: 700;
+      color: white; line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .home-tagline {
+      font-size: 15px; color: var(--blue-mid);
+      line-height: 1.75; max-width: 440px;
+    }
+    .home-tag {
+      font-size: 12px; font-weight: 600;
+      padding: 6px 15px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white; background: rgba(255,255,255,0.08);
+    }
+    /* Avatar ring with spinning dashed border */
+    .avatar-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+    .avatar-ring {
+      position: absolute; inset: -12px; border-radius: 50%;
+      border: 2px dashed rgba(255,255,255,0.18);
+      animation: spin 22s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar-ring-2 {
+      position: absolute; inset: -24px; border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.08);
+      animation: spin 30s linear infinite reverse;
+    }
+    .home-avatar {
+      width: 170px; height: 170px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-soft), var(--blue));
+      border: 4px solid rgba(255,255,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 58px; font-weight: 700; color: white;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
+    }
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.3);
+      font-size: 11px; letter-spacing: 0.05em;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+    /* Home entrance animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .home-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
+    .home-name    { animation: fadeUp 0.6s ease 0.2s both; }
+    .home-tagline { animation: fadeUp 0.6s ease 0.3s both; }
+    .home-tags    { animation: fadeUp 0.6s ease 0.4s both; }
+    .avatar-wrap  { animation: fadeUp 0.6s ease 0.25s both; }
+
+    /* ==============================================
+       SHARED SECTION STYLES
+       ============================================== */
+    .s-eyebrow {
+      font-size: 11px; font-weight: 600;
+      color: var(--blue); letter-spacing: 0.12em;
+    }
+    .s-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700;
+      color: #111827; letter-spacing: -0.01em;
+    }
+
+    /* ==============================================
+       ABOUT SECTION
+       ============================================== */
+    .about-section { padding: 6rem 0; background: white; }
+    .bio-text p { font-size: 15px; color: #6B7280; line-height: 1.85; margin-bottom: 1.1rem; }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .fact-card {
+      background: white; border: 1px solid #E5E7EB;
+      border-radius: 16px; padding: 1.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .fact-row {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding-bottom: 14px; margin-bottom: 14px;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .fact-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .fact-icon {
+      width: 38px; height: 38px; border-radius: 9px;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .fact-icon i { font-size: 16px; color: var(--blue); }
+    .fact-name { font-size: 13px; font-weight: 600; color: #111827; margin-bottom: 2px; }
+    .fact-sub  { font-size: 12px; color: #9CA3AF; }
+
+    /* ==============================================
+       ACADEMIC WORK SECTION
+       ============================================== */
+    .academic-section {
+      padding: 6rem 0; background: #F8FAFF;
+      position: relative; overflow: hidden;
+    }
+    /* top accent line */
+    .academic-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue-darker), var(--blue), var(--blue-soft), var(--blue));
+    }
+    /* decorative large circle bg */
+    .academic-section::after {
+      content: ''; position: absolute;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: rgba(37,99,235,0.03);
+      right: -200px; top: -200px;
+    }
+    .proj-card {
+      background: white; border: 1px solid #E5E7EB;
+      border-radius: 14px; padding: 1.5rem; height: 100%;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    /* animated top bar on hover */
+    .proj-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--blue);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .proj-card:hover {
+      border-color: var(--blue-pale);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(37,99,235,0.1);
+    }
+    .proj-card:hover::before { transform: scaleX(1); }
+    .proj-empty {
+      background: white; border: 1.5px dashed #D1D5DB;
+      border-radius: 14px; height: 100%; min-height: 200px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      color: #D1D5DB; transition: border-color 0.2s;
+    }
+    .proj-empty:hover { border-color: var(--blue-mid); }
+
+    /* ==============================================
+       SKILLS SECTION
+       ============================================== */
+    .skills-section { padding: 6rem 0; background: white; }
+    .group-label {
+      font-size: 14px; font-weight: 600; color: #111827;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .group-label i { font-size: 17px; color: var(--blue); }
+    .skill-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 500;
+      padding: 6px 13px; border-radius: 8px; margin: 3px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .skill-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .s-card {
+      background: #F9FAFB; border: 1px solid #E5E7EB;
+      border-radius: 10px; padding: 1rem 1.1rem;
+      display: flex; gap: 10px; align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      height: 100%;
+    }
+    .s-card:hover {
+      border-color: var(--blue-pale);
+      box-shadow: 0 4px 14px rgba(37,99,235,0.08);
+    }
+    .s-card i { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+    .s-title   { font-size: 13px; font-weight: 600; color: #111827; margin-bottom: 3px; }
+    .s-sub     { font-size: 12px; color: #6B7280; }
+    .ws-card {
+      background: white; border: 1px solid #E5E7EB;
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; gap: 14px; align-items: flex-start;
+      transition: all 0.22s; height: 100%;
+    }
+    .ws-card:hover {
+      border-color: var(--blue-pale);
+      box-shadow: 0 8px 28px rgba(37,99,235,0.08);
+      transform: translateY(-3px);
+    }
+    .ws-icon {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ws-icon i { font-size: 21px; color: var(--blue); }
+    .divider-line { height: 1px; background: #F3F4F6; margin: 2.5rem 0; }
+
+    /* ==============================================
+       CONTACT SECTION
+       ============================================== */
+    .contact-section {
+      background: var(--blue-darker);
+      padding: 6rem 0; position: relative; overflow: hidden;
+    }
+    /* Background decorative circles */
+    .contact-section .bg-c1 {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(37,99,235,0.18);
+      right: -140px; top: -140px; pointer-events: none;
+    }
+    .contact-section .bg-c2 {
+      position: absolute; width: 280px; height: 280px; border-radius: 50%;
+      background: rgba(96,165,250,0.1);
+      left: -70px; bottom: -70px; pointer-events: none;
+    }
+    .c-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px; padding: 1.2rem 1.5rem;
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none; max-width: 500px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .c-card:hover { background: rgba(255,255,255,0.14); transform: translateX(6px); }
+    .c-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .c-icon i { font-size: 20px; color: white; }
+    .c-label { font-size: 11px; font-weight: 600; color: var(--blue-soft); margin-bottom: 3px; }
+    .c-value { font-size: 14px; color: white; font-weight: 500; }
+
+    /* ==============================================
+       FOOTER
+       ============================================== */
+    footer { background: var(--blue-navy); padding: 1.5rem; text-align: center; }
+    footer p { font-size: 12px; color: #475569; margin: 0; }
+
+    /* ==============================================
+       RESPONSIVE
+       ============================================== */
+    @media (max-width: 768px) {
+      .home-name    { font-size: 40px; }
+      .home-avatar  { width: 120px; height: 120px; font-size: 40px; }
+      .s-heading    { font-size: 28px; }
+      .avatar-ring, .avatar-ring-2 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Rachel Maye Nuevo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-1 py-2 py-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#academic">Academic work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ===================== HOME ===================== -->
+  <section class="home-section" id="home">
+    <div class="home-dots"></div>
+    <div class="circle-1"></div>
+    <div class="circle-2"></div>
+    <div class="circle-3"></div>
+    <div class="circle-4"></div>
+
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+          <p class="home-eyebrow mb-3">3rd year · BSIT · DNSC · Tagum City</p>
+          <h1 class="home-name mb-3">Rachel Maye<br>Nuevo</h1>
+          <p class="home-tagline mb-4">
+            Aspiring IT professional passionate about cybersecurity,
+            policy development, and building a purposeful path in technology.
+          </p>
+          <div class="home-tags d-flex flex-wrap gap-2">
+            <span class="home-tag">UI/UX Design</span>
+            <span class="home-tag">HTML5 & CSS3</span>
+            <span class="home-tag">Networking</span>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="avatar-wrap">
+            <div class="avatar-ring-2"></div>
+            <div class="avatar-ring"></div>
+            <div class="home-avatar" style="padding: 0; overflow: hidden;">
+              <img src="images/pp.jpg" alt="Rachel Maye Nuevo" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll down</span>
+      <i class="ti ti-chevron-down" style="font-size:18px;"></i>
+    </div>
+  </section>
+
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <p class="s-eyebrow mb-1">About me</p>
+      <h2 class="s-heading mb-5">Hello! I'm Rachel</h2>
+
+      <div class="row g-5 align-items-start">
+
+        <!-- Bio paragraphs -->
+        <div class="col-lg-7">
+          <div class="bio-text">
+            <p>I'm a third-year Bachelor of Science in Information Technology student at Davao del Norte State College here in Tagum City, where I was born and raised. I'm currently finishing my 3rd year and on track to move into my 4th year this coming semester.</p>
+            <p>My path to DNSC hasn't been a straight line. I previously studied at the University of Mindanao for one semester and a half before pausing for nearly three years due to financial challenges. Returning to school was a deliberate and meaningful choice, DNSC has given me a community that genuinely makes me want to show up every day.</p>
+            <p>Getting to know me takes a little patience. I tend to be reserved at first, but once I'm comfortable, you'll find someone who laughs easily and gives as much as they receive. I hold honesty and integrity close, I'm the kind of person who will always tell you the truth, even when it's easier not to.</p>
+          </div>
+        </div>
+
+        <!-- Quick facts card -->
+        <div class="col-lg-5">
+          <div class="fact-card">
+            <p style="font-size:13px;font-weight:600;color:#111827;margin-bottom:1.25rem;">Quick facts</p>
+
+            <div class="fact-row">
+              <div class="fact-icon"><i class="ti ti-school"></i></div>
+              <div><p class="fact-name">Davao del Norte State College</p><p class="fact-sub">BS Information Technology</p></div>
+            </div>
+            <div class="fact-row">
+              <div class="fact-icon"><i class="ti ti-calendar"></i></div>
+              <div><p class="fact-name">3rd year student</p><p class="fact-sub">Upcoming 4th year</p></div>
+            </div>
+            <div class="fact-row">
+              <div class="fact-icon"><i class="ti ti-map-pin"></i></div>
+              <div><p class="fact-name">Tagum City, Davao del Norte</p><p class="fact-sub">Philippines</p></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== ACADEMIC WORK ===================== -->
+  <section class="academic-section" id="academic">
+    <div class="container position-relative" style="z-index:1;">
+      <p class="s-eyebrow mb-1">Academic work</p>
+      <h2 class="s-heading mb-5">Coursework & projects</h2>
+
+      <div class="row g-4">
+
+        <!-- Project 1 -->
+        <div class="col-md-4">
+          <a href="https://bullepin-als-lms.web.app/" target="_blank" rel="noopener noreferrer" class="proj-card d-flex flex-column h-100 text-decoration-none" style="display: block; color: inherit;">
+            <!-- Card Header (Badge & Icon) -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge" style="background:#DBEAFE;color:#1D4ED8;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;">LMS</span>
+              <i class="ti ti-brain" style="font-size:20px;color:#2563EB;"></i>
+            </div>
+            
+            <!-- Card Body Content -->
+            <p style="font-size:14px;font-weight:600;color:#111827;line-height:1.4;margin-bottom:8px;">A Smarter LMS—Powered by Thinking</p>
+            <p style="font-size:12px;color:#6B7280;line-height:1.6;margin-bottom:14px;">ALS enhances learning with AI-driven challenges that push students to reason, not just recall.</p>
+            
+            <!-- Card Footer Content -->
+            <p class="mt-auto" style="font-size:11px;font-weight:600;color:#2563EB;margin:0;">Web Application</p>
+          </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-4">
+          <a href="https://github.com/CasesJ/casesJ-coconut-leaf-disease" target="_blank" rel="noopener noreferrer" class="proj-card d-flex flex-column h-100 text-decoration-none" style="display: block; color: inherit;">
+            <!-- Card Header (Badge & Icon) -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge" style="background:#EEF2FF;color:#4338CA;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;">YOLO v8 · AI</span>
+              <i class="ti ti-leaf" style="font-size:20px;color:#10B981;"></i>
+            </div>
+            
+            <!-- Card Body Content -->
+            <p style="font-size:14px;font-weight:600;color:#111827;line-height:1.4;margin-bottom:8px;">Coconut Leaf Disease Detection & Mapping</p>
+            <p style="font-size:12px;color:#6B7280;line-height:1.6;margin-bottom:14px;">Computer vision system leveraging object detection models to identify and analyze agricultural health patterns and plantation data.</p>
+            
+            <!-- Card Footer Content -->
+            <p class="mt-auto" style="font-size:11px;font-weight:600;color:#4F46E5;margin:0;">GitHub Repository</p>
+          </a>
+        </div>
+
+        <!-- Empty slot -->
+        <div class="col-md-4">
+          <div class="proj-empty">
+            <i class="ti ti-plus" style="font-size:26px;"></i>
+            <span style="font-size:12px;font-style:italic;">Add more projects here</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <p class="s-eyebrow mb-1">Skills</p>
+      <h2 class="s-heading mb-5">What I bring to the table</h2>
+
+      <!-- Tools & Applications -->
+      <div class="mb-4">
+        <p class="group-label mb-3"><i class="ti ti-device-laptop"></i> Tools & applications I use</p>
+        <div class="ms-4">
+          <span class="skill-chip" style="background:#DBEAFE;color:#1D4ED8;"><i class="ti ti-file-text" style="font-size:12px;"></i>Microsoft Word</span>
+          <span class="skill-chip" style="background:#DBEAFE;color:#1D4ED8;"><i class="ti ti-table" style="font-size:12px;"></i>Microsoft Excel</span>
+          <span class="skill-chip" style="background:#DBEAFE;color:#1D4ED8;"><i class="ti ti-presentation" style="font-size:12px;"></i>Microsoft PowerPoint</span>
+          <span class="skill-chip" style="background:#EEF2FF;color:#4338CA;"><i class="ti ti-brand-google" style="font-size:12px;"></i>Google Docs</span>
+          <span class="skill-chip" style="background:#EEF2FF;color:#4338CA;"><i class="ti ti-brand-google" style="font-size:12px;"></i>Google Sheets</span>
+          <span class="skill-chip" style="background:#EEF2FF;color:#4338CA;"><i class="ti ti-brand-google" style="font-size:12px;"></i>Google Slides</span>
+          <span class="skill-chip" style="background:#E0F2FE;color:#0369A1;"><i class="ti ti-brush" style="font-size:12px;"></i>Canva</span>
+          <span class="skill-chip" style="background:#FEF3C7;color:#92400E;"><i class="ti ti-world" style="font-size:12px;"></i>Social media</span>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- IT Coursework -->
+      <div class="mb-4">
+        <p class="group-label mb-1"><i class="ti ti-code"></i> IT coursework & fundamentals</p>
+        <p style="font-size:12px;color:#9CA3AF;font-style:italic;margin:0 0 1rem 25px;">Topics studied and introduced to through the BSIT program</p>
+        <div class="row g-3 ms-1">
+          <div class="col-md-6">
+            <div class="s-card">
+              <i class="ti ti-terminal" style="color:#2563EB;"></i>
+              <div><p class="s-title">Basic programming</p><p class="s-sub">Introductory programming logic and concepts</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="s-card">
+              <i class="ti ti-network" style="color:#4F46E5;"></i>
+              <div><p class="s-title">Networking fundamentals</p><p class="s-sub">Basic networking concepts and infrastructure</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="s-card">
+              <i class="ti ti-database" style="color:#0369A1;"></i>
+              <div><p class="s-title">Database basics</p><p class="s-sub">Foundational knowledge of data storage</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="s-card">
+              <i class="ti ti-browser" style="color:#92400E;"></i>
+              <div><p class="s-title">Web development basics</p><p class="s-sub">Introduction to web technologies and design</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- How I Work -->
+      <div>
+        <p class="group-label mb-3"><i class="ti ti-user-check"></i> How I work</p>
+        <div class="row g-3 ms-1">
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="ti ti-checklist"></i></div>
+              <div>
+                <p style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px;">Detail-oriented</p>
+                <p style="font-size:13px;color:#6B7280;margin:0;">I follow instructions carefully and thoroughly</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="ti ti-user"></i></div>
+              <div>
+                <p style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px;">Self-directed</p>
+                <p style="font-size:13px;color:#6B7280;margin:0;">I work well and stay focused independently</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- ===================== CERTIFICATIONS ===================== -->
+<section class="certifications-section py-5" id="certifications">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: #6B7280; margin-bottom: 6px;">Credentials</p>
+        <h3 style="font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 24px;">Licenses & Certifications</h3>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Certification Card 1 (Cisco) -->
+      <div class="col-md-4">
+        <a href="certi/cisco certificate.pdf" target="_blank" rel="noopener noreferrer" class="proj-card d-flex flex-column h-100 text-decoration-none" style="display: block; color: inherit; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px; border-radius: 12px; transition: transform 0.2s ease;">
+          <!-- Card Header -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge" style="background:#FEE2E2;color:#DC2626;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;">CCNA / Network</span>
+            <i class="ti ti-file-text" style="font-size:22px;color:#EF4444;"></i>
+          </div>
+          
+          <!-- Card Body -->
+          <p style="font-size:14px;font-weight:600;color:#111827;line-height:1.4;margin-bottom:4px;">Introduction to Networks</p>
+          <p style="font-size:12px;color:#6B7280;margin-bottom:16px;">Cisco Networking Academy</p>
+          
+          <!-- Card Footer -->
+          <p class="mt-auto" style="font-size:12px;font-weight:600;color:#2563EB;margin:0;display:flex;align-items:center;gap:4px;">
+            View Certificate PDF <i class="ti ti-arrow-up-right" style="font-size:14px;"></i>
+          </p>
+        </a>
+      </div>
+
+      <!-- Certification Card 2 (Wadhwani Foundation) -->
+      <div class="col-md-4">
+        <a href="certi/Wadhwani Foundation Certificate - 69f38597b36cdf49a0e66330.pdf" target="_blank" rel="noopener noreferrer" class="proj-card d-flex flex-column h-100 text-decoration-none" style="display: block; color: inherit; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px; border-radius: 12px; transition: transform 0.2s ease;">
+          <!-- Card Header -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge" style="background:#E0F2FE;color:#0369A1;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;">Professional Skills</span>
+            <i class="ti ti-award" style="font-size:22px;color:#0284C7;"></i>
+          </div>
+          
+          <!-- Card Body -->
+          <p style="font-size:14px;font-weight:600;color:#111827;line-height:1.4;margin-bottom:4px;">Core IT Professional Readiness</p>
+          <p style="font-size:12px;color:#6B7280;margin-bottom:16px;">Wadhwani Foundation</p>
+          
+          <!-- Card Footer -->
+          <p class="mt-auto" style="font-size:12px;font-weight:600;color:#2563EB;margin:0;display:flex;align-items:center;gap:4px;">
+            View Certificate PDF <i class="ti ti-arrow-up-right" style="font-size:14px;"></i>
+          </p>
+        </a>
+      </div>
+
+      <!-- Certification Card 3 (NC II Placeholder) -->
+      <div class="col-md-4">
+        <div class="proj-card d-flex flex-column h-100" style="background: #F9FAFB; border: 1px dashed #D1D5DB; padding: 24px; border-radius: 12px;">
+          <!-- Card Header -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge" style="background:#F3F4F6;color:#4B5563;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;">TESDA / NC II</span>
+            <i class="ti ti-file-off" style="font-size:22px;color:#9CA3AF;"></i>
+          </div>
+          
+          <!-- Card Body -->
+          <p style="font-size:14px;font-weight:600;color:#4B5563;line-height:1.4;margin-bottom:4px;">Computer Systems Servicing NC II</p>
+          <p style="font-size:12px;color:#9CA3AF;margin-bottom:16px;">Issued · 2019</p>
+          
+          <!-- Card Footer (Placeholder Status) -->
+          <p class="mt-auto" style="font-size:12px;font-weight:500;color:#9CA3AF;margin:0;display:flex;align-items:center;gap:4px;font-style:italic;">
+            <i class="ti ti-info-circle" style="font-size:14px;"></i> Certificate file not attached
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact-section" id="contact">
+    <div class="bg-c1"></div>
+    <div class="bg-c2"></div>
+
+    <div class="container position-relative" style="z-index:1;">
+      <p class="s-eyebrow mb-1" style="color:#93C5FD;">Contact</p>
+      <h2 class="s-heading mb-2" style="color:white;">Get in touch</h2>
+      <p style="font-size:15px;color:#BFDBFE;max-width:420px;line-height:1.75;margin-bottom:2.5rem;">
+        Feel free to reach out for academic collaboration or course-related discussions.
+      </p>
+
+      <div class="d-flex flex-column gap-3 mb-5">
+
+        <!-- Email -->
+        <a href="mailto:nuevo.rachelmaye@dnsc.edu.ph" class="c-card">
+          <div class="c-icon"><i class="ti ti-mail"></i></div>
+          <div>
+            <p class="c-label">School email</p>
+            <p class="c-value">nuevo.rachelmaye@dnsc.edu.ph</p>
+          </div>
+          <i class="ti ti-arrow-up-right ms-auto" style="font-size:16px;color:#93C5FD;"></i>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/mayiieee.05" target="_blank" rel="noopener" class="c-card">
+          <div class="c-icon"><i class="ti ti-brand-facebook"></i></div>
+          <div>
+            <p class="c-label">Facebook</p>
+            <p class="c-value">facebook.com/mayiieee.05</p>
+          </div>
+          <i class="ti ti-arrow-up-right ms-auto" style="font-size:16px;color:#93C5FD;"></i>
+        </a>
+
+      </div>
+
+      <div style="padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px;">
+        <i class="ti ti-school" style="font-size:16px;color:#93C5FD;"></i>
+        <span style="font-size:13px;color:#BFDBFE;">Davao del Norte State College · BS Information Technology · Tagum City</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>Rachel Maye Nuevo · BS Information Technology · DNSC · 2025</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
